@@ -1,0 +1,36 @@
+.questionAnswer {
+    width: 50%;
+    border: 2px solid transparent;
+    background-color: lightyellow;
+    padding: 1em;
+    margin-right: 1em;
+    border-radius: 1em;
+}
+
+.questionAnswer.answerable:hover {
+    border: 2px solid green;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.questionAnswer.chosenOption {
+    border: 2px solid green;
+    background-color: lightgreen;
+}
+
+.questionAnswer.notChosenOption {
+    opacity: 0.5;
+}
+
+.quationAnswer-votePrecent {
+    margin-bottom: 0.5em;
+}
+
+.quationAnswer-votePrecent span {
+    margin-right: 1em;
+    font-size: 0.75em;
+}
+
+.questionAnswer-voters {
+    padding-top: 0.5em;
+}

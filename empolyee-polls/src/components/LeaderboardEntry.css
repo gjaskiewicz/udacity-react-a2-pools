@@ -1,0 +1,25 @@
+.leaderboardEntry {
+    margin: 0.25em;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.leaderboardUser {
+    display: flex;
+    align-items: center;
+}
+
+.leaderboardUser > span {
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.leaderboardStat {
+    margin-top: 0.25em;
+}
+
+.leaderboardStat > span {
+    margin-right: 0.5em;
+    font-size: 0.75em;
+}

@@ -1,0 +1,11 @@
+.login {
+    margin-left: 1em;
+}
+
+.error {
+    border: 2px solid red;
+    background-color: lightcoral;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}

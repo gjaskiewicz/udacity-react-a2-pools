@@ -1,0 +1,21 @@
+.appHeader {
+  background: lavender;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.appHeaderTitle {
+  font-size: 2em;
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}

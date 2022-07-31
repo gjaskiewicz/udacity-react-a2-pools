@@ -1,0 +1,15 @@
+.userAvatar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.userAvatar > span {
+    margin-left: 1em;
+}
+
+.userAvatarImage {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
