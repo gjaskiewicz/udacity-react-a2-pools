@@ -10,6 +10,9 @@ const QuestionDetailsPage = ({ authedUser, users, questions }) => {
 
     const { qid } = useParams();
 
+    if (!authedUser) {
+        return (<InfoMessage text="Please log in to view the poll" />);
+    }
 
     const question = questions[qid];
     if (!question) {

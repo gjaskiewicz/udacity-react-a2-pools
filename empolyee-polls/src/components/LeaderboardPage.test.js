@@ -38,7 +38,7 @@ describe("Leaderboard page", () => {
                 },
             },
             questions: {},
-            authedUser: null
+            authedUser: 'usr3'
         };
         storeInTest = createNewStore(preloadedState);
 

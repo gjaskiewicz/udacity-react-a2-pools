@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { useState } from "react";
 
 import PageTitle from "./PageTitle";
+import InfoMessage from "./InfoMessage";
 import Question from "./Question";
 import QuestionSummaryType from "./QuestionSummaryType";
 
@@ -12,7 +13,7 @@ const Mode = {
     UNANSWERED: "UNANSWERED"
 }
 
-const PollsDashboardPage = ({ authedUser, questions, users }) => {
+const PollsDashboardPage = ({ authedUser, questionsByTime, users }) => {
 
     const [mode, setMode] = useState(Mode.UNANSWERED);
 
@@ -21,7 +22,7 @@ const PollsDashboardPage = ({ authedUser, questions, users }) => {
         setMode(mode);
     }
 
-    let displayQuestions = questions && Object.values(questions);
+    let displayQuestions = questionsByTime || [];
     if (users && authedUser) {
         const { answers } = users[authedUser];
         displayQuestions = displayQuestions.filter(q => {
@@ -36,6 +37,7 @@ const PollsDashboardPage = ({ authedUser, questions, users }) => {
     return (
         <div>
             <PageTitle text="Polls" />
+            { !authedUser && <InfoMessage text="Sign in to vote" />}
             <ul className="pollsTabs" style={{display: (!authedUser ? "none" : "flex")}}>
                 <li className={mode === Mode.ANSWERED ? "selected" : ""}>
                     <a href="#" onClick={selectMode(Mode.ANSWERED)}>ANSWERED</a>
@@ -56,4 +58,9 @@ const PollsDashboardPage = ({ authedUser, questions, users }) => {
         </div>)
 };
 
-export default connect(({ authedUser, questions, users }) => ({ authedUser, questions, users }))(PollsDashboardPage);
+const mapStateToProps = ({ authedUser, questions, users }) => {
+    let questionsByTime = Object.values(questions || {}).sort((q1, q2) => q1.timestamp - q2.timestamp);
+    return { authedUser, questionsByTime, users };
+};
+
+export default connect(mapStateToProps)(PollsDashboardPage);
