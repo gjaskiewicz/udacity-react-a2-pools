@@ -8,7 +8,7 @@ Employee Polls is an application, which allows foster democracy inside your comp
 
 In order to install the project check it out from Github repo
 ```
-git clone https://github.com/gjaskiewicz/
+git clone https://github.com/gjaskiewicz/udacity-react-a2-pools.git
 ```
 
 Next run ```npm install``` in project directory. This project was run and built using npm 8.1.2
