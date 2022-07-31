@@ -44,17 +44,25 @@ Application covers mainly unit tests writted in React testing library.
 
 Navigate to polls dashboard. Select a poll of your interest on click on the one of the options. The question will move to Answered questions tab. After this you can move to answering next questions.
 
+![Answering poll](https://raw.githubusercontent.com/gjaskiewicz/udacity-react-a2-pools/main/docs/dashboard-vote-screen.png "Select option in poll in dashboard view")
+
 ### Creating own poll
 
 After clicking 'Create new' you will go to page for creating new question. Questions take form 'Would you rather...' and there are 2 options which are proposed to co-worker. Right now, there is no moderation, but keep in mind that polls are not anonymous. For your best interest follow company policy of your company.
+
+![Creating new poll](https://raw.githubusercontent.com/gjaskiewicz/udacity-react-a2-pools/main/docs/new-poll-screen.png "Type new options when creating new poll")
 
 ### Seeing leaderboards
 
 Why not become true poll champ? Each participant of the platform has score based on number of polls created and polls answered. After navigating to leaderboards tab, you will see users ranked according to scoring.
 
+![Leaderboards](https://raw.githubusercontent.com/gjaskiewicz/udacity-react-a2-pools/main/docs/leaderboard-screen.png "See leaderboards to learn who is the best")
+
 ### Account management
 
 Right now, accout management is not offered. Demo comes with limited sandbox data and you can use account from there. To log in into the platform follow sign in link.
+
+![Sign in](https://raw.githubusercontent.com/gjaskiewicz/udacity-react-a2-pools/main/docs/logon-screen.png "Sign in to access the app")
 
 ## Contributing
 
