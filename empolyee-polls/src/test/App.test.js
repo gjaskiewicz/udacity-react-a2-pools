@@ -54,6 +54,11 @@ describe("App", () => {
         expect(component.getByText("Polls")).toBeInTheDocument();
     });
 
+    it("should show dashboard on '/questions'", () => {
+        const component = setupComponent("/questions");
+        expect(component.getByText("Polls")).toBeInTheDocument();
+    });
+
     it("should show new question on 'add'", () => {
         const component = setupComponent("/add");
         expect(component.getByText("Create new question")).toBeInTheDocument();

@@ -38,8 +38,9 @@ const App = ({ authedUser, dispatch }) => {
         : <Routes>
             <Route path="*" element={<InfoMessage text="404: Page not found" />} />
             <Route path="/" exact element={<PollsDashboardPage />} />
+            <Route path="/questions" exact element={<PollsDashboardPage />} />
+            <Route path="/questions/:question_id" element={<QuestionDetailsPage />} />
             <Route path="/add" element={<NewQuestionPage />} />
-            <Route path="/questions/:qid" element={<QuestionDetailsPage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
           </Routes>
       }

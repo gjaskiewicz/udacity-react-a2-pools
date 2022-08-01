@@ -8,18 +8,18 @@ import QuestionSummaryType from "./QuestionSummaryType";
 
 const QuestionDetailsPage = ({ authedUser, users, questions }) => {
 
-    const { qid } = useParams();
+    const { question_id } = useParams();
 
     if (!authedUser) {
         return (<InfoMessage text="Please log in to view the poll" />);
     }
 
-    const question = questions[qid];
+    const question = questions[question_id];
     if (!question) {
         return (<InfoMessage text="404: No such question" />)
     }
 
-    const answerable= !!authedUser && !users[authedUser].answers[qid];
+    const answerable= !!authedUser && !users[authedUser].answers[question_id];
     const summaryType = !!authedUser ? QuestionSummaryType.FULL : QuestionSummaryType.NONE;
 
     return (
