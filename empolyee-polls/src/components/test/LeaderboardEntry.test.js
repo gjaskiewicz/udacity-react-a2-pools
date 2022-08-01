@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import LeaderboardEntry from "./LeaderboardEntry";
+import { render } from '@testing-library/react';
+import LeaderboardEntry from "../LeaderboardEntry";
 
 describe("LeaderboardEntry", () => {
     const user = {

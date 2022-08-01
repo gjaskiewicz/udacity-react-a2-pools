@@ -15,14 +15,14 @@ import Nav from './components/NavBar';
 import { handleLoadQuestions } from './actions/questions';
 import { handleLoadUsers } from './actions/users';
 
-import './App.css';
+import './css/App.css';
 
-const App = ({ dispatch }) => {
+const App = ({ authedUser, dispatch }) => {
 
   useEffect(() => {
     dispatch(handleLoadQuestions());
     dispatch(handleLoadUsers());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -32,15 +32,17 @@ const App = ({ dispatch }) => {
       <SignedUser /> 
       <Nav />
       <hr />
-      <Routes>
-          <Route path="/" exact element={<PollsDashboardPage />} />
-          <Route path="/add" element={<NewQuestionPage />} />
-          <Route path="/questions/:qid" element={<QuestionDetailsPage />} />
-          <Route path="/leaderboard" element={<LeaderboardPage />} />
-          <Route path="/signin" element={<LoginPage />} />
-      </Routes>
+      { !authedUser 
+        ? <LoginPage standalone={false}/>
+        : <Routes>
+            <Route path="/" exact element={<PollsDashboardPage />} />
+            <Route path="/add" element={<NewQuestionPage />} />
+            <Route path="/questions/:qid" element={<QuestionDetailsPage />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
+          </Routes>
+      }
     </div>
   );
 }
 
-export default connect(() => ({}))(App);
+export default connect(({ authedUser }) => ({ authedUser }))(App);

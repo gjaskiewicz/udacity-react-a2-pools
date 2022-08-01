@@ -2,7 +2,7 @@ import { userAnsweredQuestions, userAskedQuestions } from "../utils/leaderboardU
 
 import UserAvatar from "./UserAvatar";
 
-import "./LeaderboardEntry.css";
+import "./css/LeaderboardEntry.css";
 
 const LeaderboardEntry = ({ index, user }) => {
     const asked = userAskedQuestions(user);

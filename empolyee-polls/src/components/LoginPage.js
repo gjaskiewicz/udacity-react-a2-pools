@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import PageTitle from "./PageTitle";
 
-import "./LoginPage.css";
+import "./css/LoginPage.css";
 
-const LoginPage = ({ dispatch }) => {
+const LoginPage = ({ standalone, dispatch }) => {
 
     const [error, setError] = useState('');
     const [userName, setUserName] = useState('');
@@ -27,7 +27,9 @@ const LoginPage = ({ dispatch }) => {
     const signIn = (e) => {
         dispatch(handleLogin(userName, password, 
             () => {
-                navigate("/");
+                if (standalone) {
+                    navigate("/");
+                }
             }, 
             () => {
                 setError("Invalid user or password"); 

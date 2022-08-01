@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { handleAnswerQuestion } from "../actions/questions";
 
-import "./QuestionAnswer.css";
+import "./css/QuestionAnswer.css";
 
 const QuestionAnswer = ({ authedUser, question, option, dispatch }) => {
     const answerClick = (e) => {

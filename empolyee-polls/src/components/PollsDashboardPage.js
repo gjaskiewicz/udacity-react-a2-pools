@@ -6,7 +6,8 @@ import InfoMessage from "./InfoMessage";
 import Question from "./Question";
 import QuestionSummaryType from "./QuestionSummaryType";
 
-import "./PollsDashboardPage.css"
+import "../css/common.css";
+import "./css/PollsDashboardPage.css"
 
 const Mode = {
     ANSWERED: "ANSWERED",
@@ -26,8 +27,8 @@ const PollsDashboardPage = ({ authedUser, questionsByTime, users }) => {
     if (users && authedUser) {
         const { answers } = users[authedUser];
         displayQuestions = displayQuestions.filter(q => {
-            if (mode == Mode.ANSWERED) { return !!answers[q.id]; }
-            if (mode == Mode.UNANSWERED) { return !answers[q.id]; }
+            if (mode === Mode.ANSWERED) { return !!answers[q.id]; }
+            if (mode === Mode.UNANSWERED) { return !answers[q.id]; }
             return false;
         });
     }
@@ -40,10 +41,10 @@ const PollsDashboardPage = ({ authedUser, questionsByTime, users }) => {
             { !authedUser && <InfoMessage text="Sign in to vote" />}
             <ul className="pollsTabs" style={{display: (!authedUser ? "none" : "flex")}}>
                 <li className={mode === Mode.ANSWERED ? "selected" : ""}>
-                    <a href="#" onClick={selectMode(Mode.ANSWERED)}>ANSWERED</a>
+                    <button className="buttonAsLink" onClick={selectMode(Mode.ANSWERED)}>ANSWERED</button>
                 </li>
                 <li className={mode === Mode.UNANSWERED ? "selected" : ""}>
-                    <a href="#" onClick={selectMode(Mode.UNANSWERED)} >UNANSWERED</a>
+                    <button className="buttonAsLink" onClick={selectMode(Mode.UNANSWERED)} >UNANSWERED</button>
                 </li>
             </ul>
             <ul>
@@ -54,12 +55,12 @@ const PollsDashboardPage = ({ authedUser, questionsByTime, users }) => {
                         summaryType={summaryType} />))
                 }
             </ul>
-            { (displayQuestions || []).length == 0 && (<div>No questions here</div>) }
+            { (displayQuestions || []).length === 0 && (<div>No questions here</div>) }
         </div>)
 };
 
 const mapStateToProps = ({ authedUser, questions, users }) => {
-    let questionsByTime = Object.values(questions || {}).sort((q1, q2) => q1.timestamp - q2.timestamp);
+    let questionsByTime = Object.values(questions || {}).sort((q1, q2) => q2.timestamp - q1.timestamp);
     return { authedUser, questionsByTime, users };
 };
 

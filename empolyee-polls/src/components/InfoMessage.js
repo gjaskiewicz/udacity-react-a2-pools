@@ -1,4 +1,4 @@
-import "./InfoMessage.css";
+import "./css/InfoMessage.css";
 
 const InfoMessage = ({ text }) => {
     return (<div className="infoMessage">{text}</div>)

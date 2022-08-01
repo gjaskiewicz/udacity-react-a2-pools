@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { setAuthUser } from "../actions/authedUser";
 
 import UserAvatar from "./UserAvatar";
 
-import "./SignedUser.css";
+import "../css/common.css";
+import "./css/SignedUser.css";
 
 const SignedUser = ({ user, dispatch }) => {
 
@@ -21,9 +21,9 @@ const SignedUser = ({ user, dispatch }) => {
                 &nbsp;
                 <UserAvatar user={user} />
                 &nbsp;
-                <a href="#" onClick={signOut}>Sign out</a>
+                <button className="buttonAsLink" onClick={signOut}>Sign out</button>
             </div>)}
-            {!user && <Link to="/signin">Sign in</Link>}
+            {!user && <span>Not signed in</span>}
         </div>
     );
 }

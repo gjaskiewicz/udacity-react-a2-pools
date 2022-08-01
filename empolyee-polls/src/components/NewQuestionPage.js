@@ -7,8 +7,8 @@ import InfoMessage from "./InfoMessage";
 
 import { handleCreateNewQuestion } from "../actions/questions";
 
-import "./Question.css";
-import "./QuestionAnswer.css"
+import "./css/Question.css";
+import "./css/QuestionAnswer.css"
 
 const NewQuestionPage = ({ authedUser, dispatch }) => {
 

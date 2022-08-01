@@ -1,4 +1,4 @@
-import "./UserAvatar.css";
+import "./css/UserAvatar.css";
 
 const UserAvatar = ({ user }) => {
     if (!user) {

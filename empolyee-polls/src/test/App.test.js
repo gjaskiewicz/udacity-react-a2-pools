@@ -1,14 +1,14 @@
-import { createNewStore } from "./app/store";
+import { createNewStore } from "../app/store";
 import { render, getByText, queryByText, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 
 
-import App from "./App";
+import App from "../App";
 
 describe("App", () => {
 
-    const setupComponent = (initialRoute) => {
+    const setupComponent = (initialRoute, authedUser = "usr1") => {
         const storeInTest = createNewStore({
             users: { 
                 "usr1": {
@@ -28,7 +28,7 @@ describe("App", () => {
                     }
                 }
             },
-            authedUser: "usr1"
+            authedUser
         });
         return render(
             <Provider store={storeInTest}>
@@ -39,14 +39,19 @@ describe("App", () => {
         );
     };
 
+    it("should show logon when not authed on '/' path", () => {
+        const component = setupComponent("/signin", null);
+        expect(component.getByText("Log in")).toBeInTheDocument();
+    });
+
+    it("should show logon when not authed on '/questions/id' path", () => {
+        const component = setupComponent("/questions/id", null);
+        expect(component.getByText("Log in")).toBeInTheDocument();
+    });
+
     it("should show dashboard on '/'", () => {
         const component = setupComponent("/");
         expect(component.getByText("Polls")).toBeInTheDocument();
-    });
-
-    it("should show logon on 'signin'", () => {
-        const component = setupComponent("/signin");
-        expect(component.getByText("Log in")).toBeInTheDocument();
     });
 
     it("should show new question on 'add'", () => {

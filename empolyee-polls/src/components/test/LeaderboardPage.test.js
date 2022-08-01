@@ -1,9 +1,9 @@
-import { createNewStore } from "../app/store";
+import { createNewStore } from "../../app/store";
 import { render, queryAllByText } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 
-import LeaderboardPage from "./LeaderboardPage";
+import LeaderboardPage from "../LeaderboardPage";
 
 describe("Leaderboard page", () => {
     let storeInTest;

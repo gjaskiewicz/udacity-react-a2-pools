@@ -1,10 +1,10 @@
 import { render, fireEvent, getByPlaceholderText, getByText, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import { handleLogin, setAuthUser } from "../actions/authedUser";
+import { handleLogin, setAuthUser } from "../../actions/authedUser";
 
-import { createNewStore } from "../app/store";
-import NewQuestionPage from "./NewQuestionPage";
+import { createNewStore } from "../../app/store";
+import NewQuestionPage from "../NewQuestionPage";
 
 describe("New question page", () => {
     let storeInTest;

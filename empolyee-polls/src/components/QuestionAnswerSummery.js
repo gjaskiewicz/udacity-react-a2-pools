@@ -4,7 +4,7 @@ import QuestionOptions from "./QuestionOptions";
 import QuestionSummaryType from "./QuestionSummaryType";
 import UserAvatar from "./UserAvatar";
 
-import "./QuestionAnswer.css";
+import "./css/QuestionAnswer.css";
 
 const QuestionAnswerSummary = ({ authedUser, users, question, option, summaryType }) => {
     let allVotes = 0;

@@ -9,7 +9,7 @@
     padding-left: 2em;
 }
 
-.pollsTabs li.selected a {
+.pollsTabs li.selected button {
     text-decoration: none;
     font-weight: bold;
     font: black;

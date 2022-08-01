@@ -1,42 +1,39 @@
-import { createNewStore } from "../app/store";
+import { createNewStore } from "../../app/store";
 import { render, getByTestId, getByText, fireEvent, waitFor, screen, act } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { MemoryRouter, Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
+import { MemoryRouter } from "react-router-dom";
 
-import LoginPage from "./LoginPage";
+import LoginPage from "../LoginPage";
 
 describe("Login Page", () => {
     let storeInTest;
     let component;
-    let history;
 
     beforeEach(() => {
-        history = createMemoryHistory({ initialEntries: ['/signin'] });
         storeInTest = createNewStore();
 
         component = render(
             <Provider store={storeInTest}>
-                <Router location={history.location} navigator={history} >
+                <MemoryRouter>
                     <LoginPage />
-                </Router>
+                </MemoryRouter>
             </Provider>
         );
     });
 
     it("allows to sign in", async () => {
+        expect(storeInTest.getState().authedUser).toBeNull();
+
         const userInput = component.getByTestId("login-input");
         const passInput = component.getByTestId("password-input");
         const loginButton = component.getByText("Sign In");
-
-        expect(history.location.pathname).toBe('/signin');
 
         fireEvent.change(userInput, { target: { value: "tylermcginnis" } });
         fireEvent.change(passInput, { target: { value: "abc321" } });
         fireEvent.click(loginButton);
         
         await waitFor(() => {
-            return expect(history.location.pathname).toEqual('/');
+            return expect(storeInTest.getState().authedUser).not.toBeNull();
         }, { timeout: 5000, interval: 1000 });
     });
 

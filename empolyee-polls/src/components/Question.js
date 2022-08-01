@@ -6,12 +6,14 @@ import QuestionAnswerSummery from "./QuestionAnswerSummery";
 import QuestionOptions from "./QuestionOptions";
 import UserAvatar from "./UserAvatar";
 
-import "./Question.css";
+import "./css/Question.css";
 
 const Question = ({ authedUser, users, question, summaryType }) => {
     const qid = question.id;
     const answerable= !!authedUser && !users[authedUser].answers[qid];
     const authorUser = (users || {})[question.author];
+    const time = new Date(question.timestamp).toLocaleString("en-US");
+
     return (
     <div className="question">
         <div className="questionTitle">
@@ -24,7 +26,7 @@ const Question = ({ authedUser, users, question, summaryType }) => {
             {!answerable && <QuestionAnswerSummery question={question} option={QuestionOptions.OPTION_TWO} summaryType={summaryType}/>}
         </div>
         <div className="questionAuthor">
-            <span>By</span> <UserAvatar user={authorUser}/>
+            <span>By</span> <UserAvatar user={authorUser}/>&nbsp;<span>on {time}</span>
         </div>
     </div>);
 }
