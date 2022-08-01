@@ -74,4 +74,9 @@ describe("App", () => {
         const component = setupComponent("/questions/q3");
         expect(component.getByText("404: No such question")).toBeInTheDocument();
     });
+
+    it("should show 404 on not exisiting page", () => {
+        const component = setupComponent("/dogs/fafik");
+        expect(component.getByText("404: Page not found")).toBeInTheDocument();
+    });
 });

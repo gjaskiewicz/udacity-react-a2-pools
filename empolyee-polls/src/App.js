@@ -8,6 +8,7 @@ import NewQuestionPage from './components/NewQuestionPage';
 import PollsDashboardPage from './components/PollsDashboardPage';
 import QuestionDetailsPage from './components/QuestionDetailsPage';
 import LeaderboardPage from './components/LeaderboardPage';
+import InfoMessage from './components/InfoMessage';
 
 import SignedUser from './components/SignedUser';
 import Nav from './components/NavBar';
@@ -35,6 +36,7 @@ const App = ({ authedUser, dispatch }) => {
       { !authedUser 
         ? <LoginPage standalone={false}/>
         : <Routes>
+            <Route path="*" element={<InfoMessage text="404: Page not found" />} />
             <Route path="/" exact element={<PollsDashboardPage />} />
             <Route path="/add" element={<NewQuestionPage />} />
             <Route path="/questions/:qid" element={<QuestionDetailsPage />} />
